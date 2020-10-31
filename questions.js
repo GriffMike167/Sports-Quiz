@@ -91,7 +91,8 @@ timer.addEventListener("clcik", function() {
                 currentTime.textContent = "Out of time!";
         
             }
-        }) 
-    }, 1000);
+        }, 1000); 
+         
+};
     
-})
+
