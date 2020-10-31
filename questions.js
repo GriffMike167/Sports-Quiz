@@ -92,7 +92,8 @@ timer.addEventListener("clcik", function() {
         
             }
         }, 1000); 
+    }
          
-};
+});
     
 
