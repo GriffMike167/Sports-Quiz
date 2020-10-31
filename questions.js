@@ -64,7 +64,7 @@ let questions = [ {
 // Variables Needed 
 
 let score = 0;
-let question = 0;
+let questionScore = 0;
 
 // time variables
 let timeLeft = 80;
@@ -93,14 +93,14 @@ timer.addEventListener("clcik", function() {
             }
         }, 1000); 
     }
-         askQuestion(question);
+         askQuestion(questionScore);
 });
 
 
-function askQuestion(question){
+function askQuestion(questionScore){
 
     for (let i = 0; i < questions.length; i++) {
-        const element = questions[i];
+        const question = questions[i];
         
     }
 }
