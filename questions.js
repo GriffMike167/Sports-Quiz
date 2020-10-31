@@ -93,7 +93,17 @@ timer.addEventListener("clcik", function() {
             }
         }, 1000); 
     }
-         
+         askQuestion(question);
 });
+
+
+function askQuestion(question){
+
+    for (let i = 0; i < questions.length; i++) {
+        const element = questions[i];
+        
+    }
+}
+
     
 
