@@ -77,6 +77,7 @@ let currentTime = document.querySelector("#current-time")
 let timer = documnet.querySelector("#startsTime")
 
 
+// Timer Function 
 
 timer.addEventListener("clcik", function() {
     if (timerInterval === 0) {
