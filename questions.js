@@ -1,6 +1,14 @@
+// elements created
+let uiEl = document.createElement("ul");
+let liEl = document.createElement("li");
+let p = document.createElement("p");
+let h1 = document.createElement("h1");
+let button = document.createElement("button");
+
+
 // start of with arrays  and objects for questions and answers
 
-var questions = [ {
+let questions = [ {
 
     title: "Which has the longest season out of all the profesional sports",
     choises: [ "Major League Baseball", "National Football League", "National Hockey League", "National Basketball Association"],
@@ -52,3 +60,37 @@ var questions = [ {
 },
 
 ];
+
+// Variables Needed 
+
+let score = 0;
+let question = 0;
+
+// time variables
+let timeLeft = 80;
+let timerInterval = 0;
+let wrongPenalty = 10;
+
+// Querys Needed
+
+let currentTime = document.querySelector("#current-time")
+let timer = documnet.querySelector("#startsTime")
+
+
+
+timer.addEventListener("clcik", function() {
+    if (timerInterval === 0) {
+        timerInterval = setInterval(function(){
+            secondsLeft--;
+            currentTime.textContent = "Time: " + secondsLeft;
+
+            if (secondsLeft === 0) {
+                clearInterval(timerInterval);
+                allDone();
+                currentTime.textContent = "Out of time!";
+        
+            }
+        }) 
+    }, 1000);
+    
+})
