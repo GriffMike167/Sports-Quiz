@@ -3,33 +3,31 @@ let mainEl = document.getElementById("main")
 
 
 let currentTime = document.querySelector("#currentTime")
-let timeEl = documnet.querySelector("time")
+let timeEl = document.querySelector("time")
 let questionDiv = document.querySelector("#questionDiv");
 
-let uiEl = document.createElement("ul");
-
-let liEl = document.createElement("li");
-liEl.textContent = questions
-uiEl.appendChild(liEl)
+let ulEl = document.createElement("ul");
 
 
-let p = document.createElement("p");
+
+
+let pEl = document.createElement("p");
 pEl.setAttribute("id", "pEl")
-body.appendChild("pEl");
+questionDiv.appendChild(pEl);
 
-let h1 = document.createElement("h1");
-h1.setAttribute("id", "createH1");
-body.appendChild(h1);
-
-
+// let h1 = document.createElement("h1");
+// h1.setAttribute("id", "createH1");
+// body.appendChild(h1);
 
 
 
-let submitEl = document.createElement("button");
-submitEl.setAttribute("id", "text");
-submitEl.setAttribute("id", "Submit");
-submitEl.textContent = "Autograph";
-questionDiv.appendChild(submitEl);
+
+
+// let submitEl = document.createElement("button");
+// submitEl.setAttribute("id", "text");
+// submitEl.setAttribute("id", "Submit");
+// submitEl.textContent = "Autograph";
+// questionDiv.appendChild(submitEl);
 
 
 
@@ -39,7 +37,7 @@ questionDiv.appendChild(submitEl);
 let questions = [ {
 
     title: "Which has the longest season out of all the profesional sports",
-    choises: [ "Major League Baseball", "National Football League", "National Hockey League", "National Basketball Association"],
+    choices: ["Major League Baseball", "National Football League", "National Hockey League", "National Basketball Association",],
     answer: "Major League Baseball"
 },
 
@@ -104,46 +102,48 @@ let secondsElapsed = 0;
 
 
 
-timeEl.addEventListener("clicks", function (){
- setTime () 
+timeEl.addEventListener("clicks", function () {
+ 
         if (timerInterval === 0) {
             let timerInterval = setInterval(function(){
                 timeLeft--;
-                timeLeft.textContent = "Time: " + timeLeft;
+                currentTime.textContent = "Time: " + timeLeft;
 
-            if (timeLeft == 0) {
+            if (timeLeft <= 0) {
                 clearInterval(timerInterval);
-                sendMessage();
+                currentTime.textContent = "Out of Time"
+
                 
         
-            }
-        }, 1000);
+                }
+            }, 1000);
 
-        }}
-        ); setTime();
+         }}); render(questions);
+        
 
-    function sendMessage () {
-        timeLeft.textContent = "Out of Time"
-    }
+        
+    
+
+    
 
    
-    function render(questionIndex) {
+    function render(questions) {
 
-        questions.innerHTML = "";
+        questionDiv.innerHTML = "";
         ulEl.innerHTML = "";
     
         for (let i = 0; i < questions.length; i++) {
             
-            let userQuestion = questions[questionIndex].title;
-            let userAnswer = questions[questionIndex].choices;
-            questionIndex.textContent = userQuestion;
+            let userQuestion = questions[question].title;
+            let userChoices = questions[question].choices;
+            questionDiv.textContent = userQuestion;
         }
     
         userChoices.forEach(function (newItem) {
     
             let listItems = document.createElement("li")
             listItems.textContent = newItem;
-            questionIndex.appendChild(ulEl);
+            questionDiv.appendChild(ulEl);
             ulEl.appendChild(listItems);
             listItems.addEventListener("click", (compare));
         })
