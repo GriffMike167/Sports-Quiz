@@ -1,19 +1,20 @@
 // elements created and querys
 let mainEl = document.getElementById("main")
 
-
+let wrapper = document.querySelector("#wrapper");
 let currentTime = document.querySelector("#currentTime")
 let timeEl = document.querySelector("time")
 let questionDiv = document.querySelector("#questionDiv");
+let timer = document.querySelector("#startTime");
 
 let ulEl = document.createElement("ul");
 
 
 
 
-let pEl = document.createElement("p");
-pEl.setAttribute("id", "pEl")
-questionDiv.appendChild(pEl);
+// let pEl = document.createElement("p");
+// pEl.setAttribute("id", "pEl")
+// questionDiv.appendChild(pEl);
 
 // let h1 = document.createElement("h1");
 // h1.setAttribute("id", "createH1");
@@ -102,7 +103,7 @@ let secondsElapsed = 0;
 
 
 
-timeEl.addEventListener("clicks", function () {
+timer.addEventListener("click", function () {
  
         if (timerInterval === 0) {
             let timerInterval = setInterval(function(){
@@ -118,35 +119,29 @@ timeEl.addEventListener("clicks", function () {
                 }
             }, 1000);
 
-         }}); render(questions);
+         }}); render(question);
         
-
-        
-    
-
-    
-
-   
-    function render(questions) {
+            function render(question) {
 
         questionDiv.innerHTML = "";
         ulEl.innerHTML = "";
     
-        for (let i = 0; i < questions.length; i++) {
+        for (let i = 0; i < question.length; i++) {
             
             let userQuestion = questions[question].title;
-            let userChoices = questions[question].choices;
+            let userChoice = questions[question].choices;
             questionDiv.textContent = userQuestion;
         }
     
         userChoices.forEach(function (newItem) {
     
-            let listItems = document.createElement("li")
-            listItems.textContent = newItem;
+            let liEl = document.createElement("li")
+            liEl.textContent = newItem;
             questionDiv.appendChild(ulEl);
-            ulEl.appendChild(listItems);
-            listItems.addEventListener("click", (compare));
+            ulEl.appendChild(liEl);
+            liEl.addEventListener("click", (compare));
         })
     
     }
+
     
