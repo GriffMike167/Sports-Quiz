@@ -3,7 +3,8 @@ let mainEl = document.getElementById("main")
 
 
 let currentTime = document.querySelector("#currentTime")
-let timeEl = documnet.querySelector(".time")
+let timeEl = documnet.querySelector("time")
+let questionDiv = document.querySelector("#questionDiv");
 
 let uiEl = document.createElement("ul");
 
@@ -20,7 +21,17 @@ let h1 = document.createElement("h1");
 h1.setAttribute("id", "createH1");
 body.appendChild(h1);
 
-let button = document.createElement("button");
+
+
+
+
+let submitEl = document.createElement("button");
+submitEl.setAttribute("id", "text");
+submitEl.setAttribute("id", "Submit");
+submitEl.textContent = "Autograph";
+questionDiv.appendChild(submitEl);
+
+
 
 
 // start of with arrays  and objects for questions and answers
@@ -93,9 +104,8 @@ let secondsElapsed = 0;
 
 
 
-
-
-    
+timeEl.addEventListener("clicks", function (){
+ setTime () 
         if (timerInterval === 0) {
             let timerInterval = setInterval(function(){
                 timeLeft--;
@@ -108,27 +118,35 @@ let secondsElapsed = 0;
         
             }
         }, 1000);
-        };
+
+        }}
+        ); setTime();
 
     function sendMessage () {
         timeLeft.textContent = "Out of Time"
     }
 
-    // } setTime();
-    // function startTimer() {
-    //     setTime();
-      
-    //     // We only want to start the timer if totalSeconds is > 0
-    //     if (timerInterval > 0) {
-    //       /* The "interval" variable here using "setInterval()" begins the recurring increment of the
-    //          secondsElapsed variable which is used to check if the time is up */
-    //         interval = setInterval(function() {
-    //           secondsElapsed++;
-      
-    //           // So renderTime() is called here once every second.
-    //           renderTime();
-    //         }, 1000);
-    //     } else {
-    //       alert("Minutes of work/rest must be greater than 0.")
-    //     }
-    //   }
+   
+    function render(questionIndex) {
+
+        questions.innerHTML = "";
+        ulEl.innerHTML = "";
+    
+        for (let i = 0; i < questions.length; i++) {
+            
+            let userQuestion = questions[questionIndex].title;
+            let userAnswer = questions[questionIndex].choices;
+            questionIndex.textContent = userQuestion;
+        }
+    
+        userChoices.forEach(function (newItem) {
+    
+            let listItems = document.createElement("li")
+            listItems.textContent = newItem;
+            questionIndex.appendChild(ulEl);
+            ulEl.appendChild(listItems);
+            listItems.addEventListener("click", (compare));
+        })
+    
+    }
+    
