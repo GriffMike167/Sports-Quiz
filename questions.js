@@ -1,13 +1,8 @@
 // elements created and querys
-let mainEl = document.getElementById("main")
 
-let wrapper = document.querySelector("#wrapper");
-let currentTime = document.querySelector("#currentTime")
-let timeEl = document.querySelector("time")
-let questionDiv = document.querySelector("#questionDiv");
-let timer = document.querySelector("#startTime");
 
-let ulEl = document.createElement("ul");
+
+
 
 
 
@@ -37,8 +32,8 @@ let ulEl = document.createElement("ul");
 
 let questions = [ {
 
-    title: "Which has the longest season out of all the profesional sports",
-    choices: ["Major League Baseball", "National Football League", "National Hockey League", "National Basketball Association",],
+    title: "Which has the longest season out of all the profesional sports:  ",
+    choices: ["Major League Baseball", "National Football League", "National Hockey League", "National Basketball Association"],
     answer: "Major League Baseball"
 },
 
@@ -50,7 +45,7 @@ let questions = [ {
 
 {
     title: "This combinations of a pitcher and a catcher will have played in the most combined no-hitter games:",
-    choice: ["Clayton Kershaw and Ivan Rodriguiz", "Nolan Ryan and Jason Veritek", "Roy Haliday and Yadier Molina", "Jason Verlander and Yogi Beara"],
+    choices: ["Clayton Kershaw and Ivan Rodriguiz", "Nolan Ryan and Jason Veritek", "Roy Haliday and Yadier Molina", "Jason Verlander and Yogi Beara"],
     answer: "Nolan Ryan (7) and Jason Veritek (8)"
 },
 
@@ -69,7 +64,7 @@ let questions = [ {
 
 {
      title: "Out of all the profesional sports leauges what is the oldest staduim used:",
-     choices: [ "Lambeau Field", "Wrigley Field", "Fenway Park", "Gillette Stadium"],
+     choices: ["Lambeau Field", "Wrigley Field", "Fenway Park", "Gillette Stadium"],
      answer: "Fenway Park April 9, 1912"
 },
 
@@ -82,16 +77,24 @@ let questions = [ {
 
 {
     title: "How many game winning field goals, made in the last minute of the game does Adam Vinatieri have:",
-    choice: [ "17", "27", "20", "5"],
+    choices: ["17", "27", "20", "5"],
     answer: "20"
 },
 
 ];
 
+let wrapper = document.querySelector("#wrapper");
+let currentTime = document.querySelector("#currentTime")
+let timeEl = document.querySelector("time")
+let questionDiv = document.querySelector("#questionDiv");
+let timer = document.querySelector("#startTime");
+
+let ulEl = document.createElement("ul");
+
 // Variables Needed 
 
 let score = 0;
-let question = 0;
+let questionIndex = 0;
 
 // time variables
 let timeLeft = 80;
@@ -99,7 +102,7 @@ let timerInterval = 0;
 let wrongPenalty = 10;
 let secondsElapsed = 0;
 
-
+let ulCreate = document.createElement("ul");
 
 
 
@@ -119,29 +122,63 @@ timer.addEventListener("click", function () {
                 }
             }, 1000);
 
-         }}); render(question);
+         }
+         render(questionIndex);
+        }); 
         
-            function render(question) {
+            function render(questionIndex) {
 
         questionDiv.innerHTML = "";
-        ulEl.innerHTML = "";
+        ulCreate.innerHTML = "";
     
-        for (let i = 0; i < question.length; i++) {
+        for (let i = 0; i < questions.length; i++) {
             
-            let userQuestion = questions[question].title;
-            let userChoice = questions[question].choices;
-            questionDiv.textContent = userQuestion;
-        }
+            let userQuestion = questions[questionIndex].title;
+            let userChoices = questions[questionIndex].choices;
+            questionDiv.textContent = userQuestion; 
+        }  
     
         userChoices.forEach(function (newItem) {
     
-            let liEl = document.createElement("li")
+            let liEl = document.createElement("li");
             liEl.textContent = newItem;
-            questionDiv.appendChild(ulEl);
-            ulEl.appendChild(liEl);
+            questionDiv.appendChild(ulCreate);
+            ulCreate.appendChild(liEl);
             liEl.addEventListener("click", (compare));
+        
         })
-    
     }
 
+    function compare(event) {
+        let element = event.target;
+    
+        if (element.matches("li")) {
+    
+            let answerDiv = document.createElement("div");
+            answerDiv.setAttribute("id", "answerDiv");
+            
+            if (element.textContent == questions[questionIndex].answer) {
+                score++;
+                answerDiv.textContent = "Goal!  " + questions[questionIndex].answer + ", is thecorrect answer!";
+                
+            } else {
+                
+                timeLeft = timeLeft - wrongPenalty;
+                answerDiv.textContent = "Flag on the play: " + questions[questionIndex].answer + ", is in correct, 10 second run off!";
+            }
+    
+        }
+        
+        questionIndex++;
+    
+        if (questionIndex >= questions.length) {
+            
+            allFinished();
+            answerDiv.textContent = "Game Over!" + " " + "Your score is  " + score + "/" + questions.length + " Correct!";
+        } else {
+            render(questionIndex);
+        }
+        questionsDiv.appendChild(answerDiv);
+    
+    }
     
