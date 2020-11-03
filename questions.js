@@ -142,7 +142,7 @@ function compare(event) {
     if (questionIndex >= questions.length) {
        
         allDone();
-        createDiv.textContent = "Game over" + "/" + "Your Score is  " + score + "/" + questions.length + " Correct!";
+        createDiv.textContent = "Game over your score is  " + score + "/" + questions.length + " Correct!";
     } else {
         render(questionIndex);
     }
@@ -174,12 +174,12 @@ function allDone(){
         let pEl2 = document.createElement("p");
         clearInterval(holdInterval);
         pEl.textContent = "Your final is: " + timeRemaining;
-        questionsDiv.appendChild("pEl2");
+        questionsDiv.appendChild(pEl2);
     }
    
     var createLabel = document.createElement("label");
     createLabel.setAttribute("id", "createLabel");
-    createLabel.textContent = "Enter your initials: ";
+    createLabel.textContent = "Enter your autograph: ";
 
     questionsDiv.appendChild(createLabel);
 
@@ -201,15 +201,15 @@ function allDone(){
 
     
     createSubmit.addEventListener("click", function () {
-        var initials = createInput.value;
+        var autograph = createInput.value;
 
-        if (initials === null) {
+        if (autograph === null) {
 
             console.log("No value entered!");
 
         } else {
             var finalScore = {
-                initials: initials,
+                autograph: autograph,
                 score: timeRemaining
             }
             console.log(finalScore);
