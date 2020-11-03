@@ -56,30 +56,28 @@ let questions = [ {
 var score = 0;
 var questionIndex = 0;
 
-
+var wrapper = document.querySelector("#wrapper");
 var currentTime = document.querySelector("#currentTime");
 var timer = document.querySelector("#startTime");
 var questionsDiv = document.querySelector("#questionsDiv");
-var wrapper = document.querySelector("#wrapper");
 
-// Seconds left is 15 seconds per question:
-var secondsLeft = 80;
-// Holds interval time
+
+
+var timeLeft = 80;
 var holdInterval = 0;
-// Holds penalty time
-var penalty = 10;
-// Creates new element
-var ulCreate = document.createElement("ul");
+var timePenalty = 10;
 
-// Triggers timer on button, shows user a display on the screen
+var ulEl = document.createElement("ul");
+
+
 timer.addEventListener("click", function () {
-    // We are checking zero because its originally set to zero
+   
     if (holdInterval === 0) {
         holdInterval = setInterval(function () {
-            secondsLeft--;
-            currentTime.textContent = "Time: " + secondsLeft;
+            timeLeft--;
+            currentTime.textContent = "Time: " + timeLeft;
 
-            if (secondsLeft <= 0) {
+            if (timeLeft <= 0) {
                 clearInterval(holdInterval);
                 allDone();
                 currentTime.textContent = "Time's up!";
@@ -89,14 +87,11 @@ timer.addEventListener("click", function () {
     render(questionIndex);
 });
 
-// Renders questions and choices to page: 
-// Clears existing data 
-// For loops to loop through all info in array
-// New for each for question choices
+
 function render(questionIndex) {
    
     questionsDiv.innerHTML = "";
-    ulCreate.innerHTML = "";
+    ulEl.innerHTML = "";
    
     for (var i = 0; i < questions.length; i++) {
         
@@ -108,14 +103,12 @@ function render(questionIndex) {
     userChoices.forEach(function (newItem) {
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
-        questionsDiv.appendChild(ulCreate);
-        ulCreate.appendChild(listItem);
+        questionsDiv.appendChild(ulEl);
+        ulEl.appendChild(listItem);
         listItem.addEventListener("click", (compare));
     })
 }
-// Event to compare choices with answer
-// Correct condition 
-// Will deduct -10 seconds off secondsLeft for wrong answers
+
 function compare(event) {
     var element = event.target;
 
@@ -130,13 +123,12 @@ function compare(event) {
             
         } else {
             
-            secondsLeft = secondsLeft - penalty;
+            timeLeft = timeLeft - timePenalty;
             createDiv.textContent = "Flag on the play:  " + questions[questionIndex].answer;
         }
 
     }
-    // Question Index determines number question user is on
-    // All done will append last page with user stats
+    
     questionIndex++;
 
     if (questionIndex >= questions.length) {
@@ -149,13 +141,7 @@ function compare(event) {
     questionsDiv.appendChild(createDiv);
 
 }
-// All done will append last page
-// Heading
-// Label
-// input
-// submit
-// Event listener to capture initials and local storage for initials and score
-// Travels to final page
+
 function allDone(){
     questionsDiv.innerHTML = "";
     currentTime.innerHTML = "";
@@ -169,8 +155,8 @@ function allDone(){
     pEl.setAttribute("id", "pEl");
     questionsDiv.appendChild(pEl);
 
-    if (secondsLeft >= 0) {
-        let timeRemaining = secondsLeft;
+    if (timeLeft >= 0) {
+        let timeRemaining = timeLeft;
         let pEl2 = document.createElement("p");
         clearInterval(holdInterval);
         pEl.textContent = "Your final is: " + timeRemaining;
