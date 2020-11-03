@@ -1,34 +1,3 @@
-// elements created and querys
-
-
-
-
-
-
-
-
-// let pEl = document.createElement("p");
-// pEl.setAttribute("id", "pEl")
-// questionDiv.appendChild(pEl);
-
-// let h1 = document.createElement("h1");
-// h1.setAttribute("id", "createH1");
-// body.appendChild(h1);
-
-
-
-
-
-// let submitEl = document.createElement("button");
-// submitEl.setAttribute("id", "text");
-// submitEl.setAttribute("id", "Submit");
-// submitEl.textContent = "Autograph";
-// questionDiv.appendChild(submitEl);
-
-
-
-
-// start of with arrays  and objects for questions and answers
 
 let questions = [ {
 
@@ -46,7 +15,7 @@ let questions = [ {
 {
     title: "This combinations of a pitcher and a catcher will have played in the most combined no-hitter games:",
     choices: ["Clayton Kershaw and Ivan Rodriguiz", "Nolan Ryan and Jason Veritek", "Roy Haliday and Yadier Molina", "Jason Verlander and Yogi Beara"],
-    answer: "Nolan Ryan  and Jason Veritek"
+    answer: "Nolan Ryan (7) and Jason Veritek (8)"
 },
 
 {
@@ -65,7 +34,7 @@ let questions = [ {
 {
      title: "Out of all the profesional sports leauges what is the oldest staduim used:",
      choices: ["Lambeau Field", "Wrigley Field", "Fenway Park", "Gillette Stadium"],
-     answer: "Fenway Park, April 9, 1912"
+     answer: "Fenway Park April 9, 1912"
 },
 
 { 
@@ -83,22 +52,11 @@ let questions = [ {
 
 ];
 
-// let wrapper = document.querySelector("#wrapper");
-// let currentTime = document.querySelector("#currentTime")
-// let timeEl = document.querySelector("time")
-// let questionDiv = document.querySelector("#questionDiv");
-// let timer = document.querySelector("#startTime");
 
-// let ulEl = document.createElement("ul");
-
-// Variables Needed 
-
-// Declared variables
 var score = 0;
 var questionIndex = 0;
 
-// Start working code 
-// Declared variables
+
 var currentTime = document.querySelector("#currentTime");
 var timer = document.querySelector("#startTime");
 var questionsDiv = document.querySelector("#questionsDiv");
@@ -132,18 +90,21 @@ timer.addEventListener("click", function () {
 });
 
 // Renders questions and choices to page: 
+// Clears existing data 
+// For loops to loop through all info in array
+// New for each for question choices
 function render(questionIndex) {
-    // Clears existing data 
+   
     questionsDiv.innerHTML = "";
     ulCreate.innerHTML = "";
-    // For loops to loop through all info in array
+   
     for (var i = 0; i < questions.length; i++) {
-        // Appends question title only
+        
         var userQuestion = questions[questionIndex].title;
         var userChoices = questions[questionIndex].choices;
         questionsDiv.textContent = userQuestion;
     }
-    // New for each for question choices
+    
     userChoices.forEach(function (newItem) {
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
@@ -153,6 +114,8 @@ function render(questionIndex) {
     })
 }
 // Event to compare choices with answer
+// Correct condition 
+// Will deduct -10 seconds off secondsLeft for wrong answers
 function compare(event) {
     var element = event.target;
 
@@ -160,23 +123,24 @@ function compare(event) {
 
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "createDiv");
-        // Correct condition 
+       
         if (element.textContent == questions[questionIndex].answer) {
             score++;
             createDiv.textContent = "Goal!:  " + questions[questionIndex].answer;
-            // Correct condition 
+            
         } else {
-            // Will deduct -5 seconds off secondsLeft for wrong answers
+            
             secondsLeft = secondsLeft - penalty;
             createDiv.textContent = "Flag on the play:  " + questions[questionIndex].answer;
         }
 
     }
     // Question Index determines number question user is on
+    // All done will append last page with user stats
     questionIndex++;
 
     if (questionIndex >= questions.length) {
-        // All done will append last page with user stats
+       
         allDone();
         createDiv.textContent = "Game over" + "/" + "Your Score is  " + score + "/" + questions.length + " Correct!";
     } else {
@@ -185,6 +149,13 @@ function compare(event) {
     questionsDiv.appendChild(createDiv);
 
 }
+// All done will append last page
+// Heading
+// Label
+// input
+// submit
+// Event listener to capture initials and local storage for initials and score
+// Travels to final page
 function allDone(){
     questionsDiv.innerHTML = "";
     currentTime.innerHTML = "";
@@ -205,14 +176,14 @@ function allDone(){
         pEl.textContent = "Your final is: " + timeRemaining;
         questionsDiv.appendChild("pEl2");
     }
-    // Label
+   
     var createLabel = document.createElement("label");
     createLabel.setAttribute("id", "createLabel");
     createLabel.textContent = "Enter your initials: ";
 
     questionsDiv.appendChild(createLabel);
 
-    // input
+    
     var createInput = document.createElement("input");
     createInput.setAttribute("type", "text");
     createInput.setAttribute("id", "initials");
@@ -220,7 +191,7 @@ function allDone(){
 
     questionsDiv.appendChild(createInput);
 
-    // submit
+    
     var createSubmit = document.createElement("button");
     createSubmit.setAttribute("type", "submit");
     createSubmit.setAttribute("id", "Submit");
@@ -228,7 +199,7 @@ function allDone(){
 
     questionsDiv.appendChild(createSubmit);
 
-    // Event listener to capture initials and local storage for initials and score
+    
     createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
 
@@ -251,7 +222,7 @@ function allDone(){
             allScores.push(finalScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
-            // Travels to final page
+            
             window.location.replace("./HighScores.html");
         }
     });
