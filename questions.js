@@ -15,7 +15,7 @@ let questions = [ {
 {
     title: "This combinations of a pitcher and a catcher will have played in the most combined no-hitter games:",
     choices: ["Clayton Kershaw and Ivan Rodriguiz", "Nolan Ryan and Jason Veritek", "Roy Haliday and Yadier Molina", "Jason Verlander and Yogi Beara"],
-    answer: "Nolan Ryan (7) and Jason Veritek (8)"
+    answer: "Nolan Ryan and Jason Veritek"
 },
 
 {
@@ -34,7 +34,7 @@ let questions = [ {
 {
      title: "Out of all the profesional sports leauges what is the oldest staduim used:",
      choices: ["Lambeau Field", "Wrigley Field", "Fenway Park", "Gillette Stadium"],
-     answer: "Fenway Park April 9, 1912"
+     answer: "Fenway Park"
 },
 
 { 
