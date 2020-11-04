@@ -174,7 +174,6 @@ function allDone(){
     createInput.setAttribute("type", "text");
     createInput.setAttribute("id", "initials");
     createInput.textContent = "";
-
     questionsDiv.appendChild(createInput);
 
     
@@ -182,7 +181,6 @@ function allDone(){
     createSubmit.setAttribute("type", "submit");
     createSubmit.setAttribute("id", "Submit");
     createSubmit.textContent = "Submit";
-
     questionsDiv.appendChild(createSubmit);
 
     
@@ -209,7 +207,7 @@ function allDone(){
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
             
-            window.location.replace("./HighScores.html");
+            window.location.replace("high_score.html");
         }
     });
 

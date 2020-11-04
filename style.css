@@ -18,35 +18,29 @@
     margin-top: 20px;
     border-top: 1px solid;
 }
-#goBack {
-    background-color: blue;
+#backButton {
+    background-color: whitesmoke;
     position: relative;
-    padding: 10px;
-    font-size: 20px;
-    color: aqua;
-    top: 30%;
-    left: 55%;
-    width: auto;
+    
+    color: black;
+    
     text-align: center;
-    text-decoration: none;
+    
 
 }
 #clear {
-    background-color: blue;
-    position: relative;
-    padding: 10%;
-    font-size: 20px;
-    color: aqua;
-    top: 30%;
-    right: 5%;
+    background-color: whitesmoke;
+    color: black;
     text-align: center;
 
         }
 
 button {
     border-radius: 8px;
-    color:whitesmoke;
-    background-color: blue
+    color:black;
+    background-color: whitesmoke;
+    align-self: start;
+
    
 
 
@@ -67,12 +61,12 @@ h1 {
 }
 
 li {
-    background-color: steelblue;
+    background-color: white;
     margin-top: 10px;
     padding: 15px 10px;
     width: 35%;
     font-size: 16px;
-    color: whitesmoke;
+    color: black;
     text-align: center;
 
 }
