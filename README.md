@@ -1,7 +1,7 @@
 # time-to-quiz
 
 <main>
-<h1>Time to Quiz</h1>
+<h2>Time to Quiz</h2>
     <p>In this project I wanted to design a sports quiz that calculated score by time left. Needing a count down timer with perimeters set that allow for penalties for incorrect answer. I created this application by using HTML, CSS, and javaScript. The data collect is posted after you are directed to high score page for results of other players.</p>
     <br>
 
