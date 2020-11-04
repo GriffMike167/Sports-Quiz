@@ -53,21 +53,21 @@ let questions = [ {
 ];
 
 
-var score = 0;
-var questionIndex = 0;
+let score = 0;
+let questionIndex = 0;
 
-var wrapper = document.querySelector("#wrapper");
-var currentTime = document.querySelector("#currentTime");
-var timer = document.querySelector("#startTime");
-var questionsDiv = document.querySelector("#questionsDiv");
+let wrapper = document.querySelector("#wrapper");
+let currentTime = document.querySelector("#currentTime");
+let timer = document.querySelector("#startTime");
+let questionsDiv = document.querySelector("#questionsDiv");
 
 
 
-var timeLeft = 80;
-var holdInterval = 0;
-var timePenalty = 10;
+let timeLeft = 80;
+let holdInterval = 0;
+let timePenalty = 10;
 
-var ulEl = document.createElement("ul");
+let ulEl = document.createElement("ul");
 
 
 timer.addEventListener("click", function () {
@@ -170,14 +170,14 @@ function allDone(){
     questionsDiv.appendChild(createLabel);
 
     
-    var createInput = document.createElement("input");
+    let createInput = document.createElement("input");
     createInput.setAttribute("type", "text");
     createInput.setAttribute("id", "initials");
     createInput.textContent = "";
     questionsDiv.appendChild(createInput);
 
     
-    var createSubmit = document.createElement("button");
+    let createSubmit = document.createElement("button");
     createSubmit.setAttribute("type", "submit");
     createSubmit.setAttribute("id", "Submit");
     createSubmit.textContent = "Submit";
@@ -185,26 +185,26 @@ function allDone(){
 
     
     createSubmit.addEventListener("click", function () {
-        var autograph = createInput.value;
+        let autograph = createInput.value;
 
         if (autograph === null) {
 
             console.log("No value entered!");
 
         } else {
-            var finalScore = {
+            let finalScore = {
                 autograph: autograph,
                 score: timeRemaining
             }
             console.log(finalScore);
-            var allScores = localStorage.getItem("allScores");
+            let allScores = localStorage.getItem("allScores");
             if (allScores === null) {
                 allScores = [];
             } else {
                 allScores = JSON.parse(allScores);
             }
             allScores.push(finalScore);
-            var newScore = JSON.stringify(allScores);
+            let newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
             
             window.location.replace("high_score.html");

@@ -7,7 +7,8 @@
 
 <h2>Features</h2>
     <h3>Buttons to Navigate</h3>
-        <p>A start button is used to start the allotted time of 80 seconds to answer 8 questions.</p>
+        <p>A start button is used to start the allotted time of 80 seconds to answer 8 question. High score takes you to the high score page, back button takes you back to the beginning and clear button clears all scores stored in the storage.
+        </p>
         <br>
         <p>Questions range in difficulty, and for each incorrect answer there is a ten second run off. Similar to rules in football (staying in theme).</p>
     <h3>Append Pages</h3>
