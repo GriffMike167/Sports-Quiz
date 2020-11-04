@@ -110,7 +110,7 @@ function render(questionIndex) {
 }
 
 function compare(event) {
-    var element = event.target;
+    let element = event.target;
 
     if (element.matches("li")) {
 
@@ -163,7 +163,7 @@ function allDone(){
         questionsDiv.appendChild(pEl2);
     }
    
-    var createLabel = document.createElement("label");
+    let createLabel = document.createElement("label");
     createLabel.setAttribute("id", "createLabel");
     createLabel.textContent = "Enter your autograph: ";
 

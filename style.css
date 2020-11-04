@@ -1,0 +1,98 @@
+
+
+    
+    
+#currentTime {
+    float: right;
+}
+#questionDiv {
+    margin: 750px;
+    
+}
+
+#startTime {
+    text-align: center;
+  
+}
+#createDiv {
+    margin-top: 20px;
+    border-top: 1px solid;
+}
+#goBack {
+    background-color: blue;
+    position: relative;
+    padding: 10px;
+    font-size: 20px;
+    color: aqua;
+    top: 30%;
+    left: 55%;
+    width: auto;
+    text-align: center;
+    text-decoration: none;
+
+}
+#clear {
+    background-color: blue;
+    position: relative;
+    padding: 10%;
+    font-size: 20px;
+    color: aqua;
+    top: 30%;
+    right: 5%;
+    text-align: center;
+
+        }
+
+button {
+    border-radius: 8px;
+    color:whitesmoke;
+    background-color: blue
+   
+
+
+}
+
+textarea {
+    width: 80%;
+    margin: 20px;
+
+}
+
+label {
+    margin-left: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+li {
+    background-color: steelblue;
+    margin-top: 10px;
+    padding: 15px 10px;
+    width: 35%;
+    font-size: 16px;
+    color: whitesmoke;
+    text-align: center;
+
+}
+
+.questionIndex {
+    background-color: steelblue;
+    margin-top: 20px;
+    padding: 5px 15px;
+    width: 80%;
+    font-size: 21px;
+    color: whitesmoke;
+
+}
+
+p {
+    text-align: center;
+    
+
+
+}
+ul {
+    text-align: center;
+}
