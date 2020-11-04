@@ -6,7 +6,7 @@
     <br>
 
 <h2>Features</h2>
-    <h3>Start Button</h3>
+    <h3>Buttons to Navigate</h3>
         <p>A start button is used to start the allotted time of 80 seconds to answer 8 questions.</p>
         <br>
         <p>Questions range in difficulty, and for each incorrect answer there is a ten second run off. Similar to rules in football (staying in theme).</p>
