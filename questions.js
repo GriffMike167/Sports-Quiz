@@ -60,13 +60,17 @@ let wrapper = document.querySelector("#wrapper");
 let currentTime = document.querySelector("#currentTime");
 let timer = document.querySelector("#startTime");
 let questionsDiv = document.querySelector("#questionsDiv");
-
+let viewScore = document.querySelector("a[href ='high_score.html'")
 
 
 let timeLeft = 80;
 let holdInterval = 0;
 let timePenalty = 10;
 
+
+viewScore.addEventListener("click", function(){
+    window.location.replace("high_score.html")
+});
 let ulEl = document.createElement("ul");
 
 
