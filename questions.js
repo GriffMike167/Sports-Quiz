@@ -111,16 +111,27 @@ function render(questionIndex) {
         ulEl.appendChild(listItem);
         listItem.addEventListener("click", (compare));
     })
-}
+
+    for (let i = 0; i < 5; ++i) {
+        let randomQustion = Math.floor(Math.random() * Math.floor(questionIndex.length))
+        console.log(randomQustion);
+
+
+
+
+
+
+}}
 
 function compare(event) {
     let element = event.target;
 
     if (element.matches("li")) {
 
-        var createDiv = document.createElement("div");
+        let createDiv = document.createElement("div");
         createDiv.setAttribute("id", "createDiv");
-       
+        questionsDiv.appendChild(createDiv);
+        
         if (element.textContent == questions[questionIndex].answer) {
             score++;
             createDiv.textContent = "Goal!:  " + questions[questionIndex].answer;
@@ -142,7 +153,7 @@ function compare(event) {
     } else {
         render(questionIndex);
     }
-    questionsDiv.appendChild(createDiv);
+    
 
 }
 
@@ -170,7 +181,6 @@ function allDone(){
     let createLabel = document.createElement("label");
     createLabel.setAttribute("id", "createLabel");
     createLabel.textContent = "Enter your autograph: ";
-
     questionsDiv.appendChild(createLabel);
 
     

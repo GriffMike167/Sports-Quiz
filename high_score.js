@@ -17,7 +17,7 @@ if (allScores !== null) {
 
         let liEl2 = document.createElement("li")
         liEl2.textContent = allScores[i].autograph + "" + allScores[i].score;
-        highScore.appendChild(liEl2)
+        ulEl.appendChild(liEl2)
         
     }
 }
