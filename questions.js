@@ -112,9 +112,9 @@ function render(questionIndex) {
         listItem.addEventListener("click", (compare));
     })
 
-    for (let i = 0; i < 5; ++i) {
-        let randomQustion = Math.floor(Math.random() * Math.floor(questionIndex.length))
-        console.log(randomQustion);
+    // for (let i = 0; i < 5; ++i) {
+    //     let randomQustion = Math.floor(Math.random() * (questionIndex.length))
+    //     console.log(randomQustion);
 
 
 
