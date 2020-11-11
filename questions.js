@@ -121,7 +121,7 @@ function render(questionIndex) {
 
 
 
-}}
+};
 
 function compare(event) {
     let element = event.target;
