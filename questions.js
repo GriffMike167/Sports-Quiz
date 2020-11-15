@@ -66,12 +66,10 @@ let viewScore = document.querySelector("a[href ='high_score.html'")
 let timeLeft = 80;
 let holdInterval = 0;
 let timePenalty = 10;
-
-
-viewScore.addEventListener("click", function(){
-    window.location.replace("high_score.html")
-});
 let ulEl = document.createElement("ul");
+
+
+
 
 
 timer.addEventListener("click", function () {
@@ -121,7 +119,8 @@ function render(questionIndex) {
 
 
 
-};
+}
+
 
 function compare(event) {
     let element = event.target;
@@ -130,7 +129,7 @@ function compare(event) {
 
         let createDiv = document.createElement("div");
         createDiv.setAttribute("id", "createDiv");
-        questionsDiv.appendChild(createDiv);
+        
         
         if (element.textContent == questions[questionIndex].answer) {
             score++;
@@ -153,7 +152,7 @@ function compare(event) {
     } else {
         render(questionIndex);
     }
-    
+    questionsDiv.appendChild(createDiv);
 
 }
 
@@ -186,7 +185,7 @@ function allDone(){
     
     let createInput = document.createElement("input");
     createInput.setAttribute("type", "text");
-    createInput.setAttribute("id", "initials");
+    createInput.setAttribute("id", "autograph");
     createInput.textContent = "";
     questionsDiv.appendChild(createInput);
 
@@ -208,7 +207,7 @@ function allDone(){
         } else {
             let finalScore = {
                 autograph: autograph,
-                score: timeRemaining
+                score: timeRemaining,
             }
             console.log(finalScore);
             let allScores = localStorage.getItem("allScores");
